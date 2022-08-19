@@ -27,9 +27,11 @@ module HealthCheck
           when "database"
             HealthCheck::Utils.get_database_version
           when "email"
-            errors << HealthCheck::Utils.check_email
+            # errors << HealthCheck::Utils.check_email
+            # do nothing
           when "emailconf"
-            errors << HealthCheck::Utils.check_email if HealthCheck::Utils.mailer_configured?
+            # errors << HealthCheck::Utils.check_email if HealthCheck::Utils.mailer_configured?
+            # do nothing
           when "migrations", "migration"
             if defined?(ActiveRecord::Migration) and ActiveRecord::Migration.respond_to?(:check_pending!)
               # Rails 4+
